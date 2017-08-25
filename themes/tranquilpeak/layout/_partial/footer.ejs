@@ -1,0 +1,9 @@
+<footer id="footer" class="main-content-wrap">
+    <div class="copyrights">
+        Copyrights &copy; <%= date(new Date(), 'YYYY') + ' ' + config.author || config.title %>. All Rights Reserved.
+        
+    </div>
+    <div class="copyrights">
+    	Powered by <a href="http://hexo.io/" target="_blank" rel="nofollow">Hexo</a> <% if(theme.beian){ %> <a href="http://www.miibeian.gov.cn/" target="_blank" class="beian" rel="nofollow"><%=theme.beian %></a> <% } %> 
+    </div>
+</footer>
