@@ -90,6 +90,7 @@ author:
                 # Overwritten by your gravatar image if `gravatar_image` is enabled
 
 # Customization
+sidebar_behavior: 2
 gravatar_image: 0                      # Enable gravatar image. Using `author.email` value. (disable: 0, enable: 1). Overwrite `author.picture` everywhere in the blog
 thumbnail_image: 1                     # Display thumbnail image of each post on index pages (disable: 0, enable: 1)
 read_more_message: Continue reading    # Message displayed after the <!-- more --> tag
