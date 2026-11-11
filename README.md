@@ -1,6 +1,6 @@
 # danielfeng.github.io
 
-Source for https://danielfeng.github.io (Hexo 8 + NexT Gemini, Gruvbox Dark palette).
+Source for https://danielfeng.github.io (Hexo 8 + hexo-theme-redefine, Gruvbox Dark palette).
 
 - `source` branch: site source (this branch).
 - `master` branch: generated site, written by GitHub Actions. Don't edit it by hand.
@@ -18,5 +18,6 @@ git add source/_posts && git commit -m "post: 文章标题" && git push origin s
 Pushing to `source` runs `.github/workflows/deploy.yml`, which builds the site
 and pushes it to `master`; GitHub Pages picks it up in a minute or two.
 
-Theme colors: `source/_data/variables.styl` and `source/_data/styles.styl`.
-Theme settings: `_config.next.yml`.
+Theme settings: `_config.redefine.yml` (overrides on top of the npm package's defaults).
+Gruvbox colours / small CSS fixes: `source/css/gruvbox.css`.
+Banner and avatar are local SVGs in `source/images/`.

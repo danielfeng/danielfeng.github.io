@@ -1,0 +1,168 @@
+# Theme Redefine overrides (merged on top of node_modules/hexo-theme-redefine/_config.yml)
+# Docs: https://redefine-docs.ohevan.com
+# Gruvbox Dark palette tweaks that config can't express live in source/css/gruvbox.css.
+
+info:
+  title: Daniel's Blog
+  subtitle: ''
+  author: danielfeng
+  url: https://danielfeng.github.io
+
+defaults:
+  favicon: /images/favicon.svg
+  logo:
+  avatar: /images/avatar.svg
+
+colors:
+  primary: "#fe8019"        # gruvbox orange
+  default_mode: dark        # plus source/css + inject script below so first visit is dark
+
+global:
+  website_counter:
+    enable: false           # third-party counter, off
+  single_page: true
+  preloader:
+    enable: false
+  open_graph:
+    enable: true
+    image:
+    description: danielfeng 的博客
+  google_analytics:
+    enable: false
+
+home_banner:
+  enable: true
+  style: static
+  image:
+    light: /images/banner-gruvbox-light.svg
+    dark: /images/banner-gruvbox-dark.svg
+  title: Daniel's Blog
+  subtitle:
+    text: []
+    hitokoto:
+      enable: false
+  text_color:
+    light: "#3c3836"
+    dark: "#ebdbb2"
+  text_style:
+    title_size: 2.6rem
+    subtitle_size: 1.3rem
+    line_height: 1.3
+  social_links:
+    enable: true
+    style: center
+    # Hexo merges theme arrays by index, so the theme's sample entries are blanked out explicitly
+    links:
+      - icon: github
+        url: https://github.com/danielfeng
+      - icon: twitter
+        url:
+      - icon: email
+        url:
+      - icon: telegram
+        url:
+      - icon: /images/custom-icon.svg
+        url:
+    qrs:
+      - icon: weixin
+        qr:
+      - icon: /images/custom-icon.svg
+        qr:
+
+navbar:
+  auto_hide: false
+  color:
+    left: "#282828"
+    right: "#3c3836"
+    transparency: 80
+  links:
+    Home:
+      path: /
+      icon: fa-regular fa-house
+    Archives:
+      path: /archives
+      icon: fa-regular fa-box-archive
+    GitHub:
+      path: https://github.com/danielfeng
+      icon: fa-brands fa-github
+  search:
+    enable: true
+    preload: true
+
+home:
+  sidebar:
+    enable: true
+    position: left
+    first_item: info
+    announcement:
+    show_on_mobile: true
+    links:
+      归档:
+        path: /archives
+        icon: fa-regular fa-box-archive
+  article_date_format: YYYY-MM-DD
+  excerpt_length: 160
+
+articles:
+  style:
+    font_size: 16px
+    line_height: 1.85
+    image_border_radius: 10px
+    link_icon: true
+    title_alignment: left
+  word_count:
+    enable: true
+    count: true
+    min2read: true
+  author_label:
+    enable: false
+  code_block:
+    copy: true
+    style: mac
+    highlight_theme:
+      light: github
+      dark: vs2015          # recoloured to Gruvbox via CSS variables in source/css/gruvbox.css
+  toc:
+    enable: true
+    max_depth: 3
+    number: false
+    expand: true
+    init_open: true
+  copyright:
+    enable: true
+    default: cc_by_nc_sa
+  pangu_js: false
+  recommendation:
+    enable: false
+
+comment:
+  enable: false
+
+footer:
+  runtime: true
+  icon: '<i class="fa-solid fa-terminal" style="color: #fe8019"></i>'
+  start: 2017/8/25 12:00:00
+  statistics: true
+  customize:
+  icp:
+    enable: false
+
+inject:
+  enable: true
+  head:
+    # Dark by default on first visit (Redefine otherwise follows the OS setting).
+    # The visitor's own toggle choice is still remembered afterwards.
+    - '<script>(function(){try{var k="REDEFINE-THEME-STATUS";if(!localStorage.getItem(k)){localStorage.setItem(k,JSON.stringify({isExpandPageWidth:false,isDark:true,fontSizeLevel:0,isOpenPageAside:true}));var r=document.documentElement;r.classList.remove("light");r.classList.add("dark");r.style.colorScheme="dark";var fix=function(){var b=document.body;if(!b)return false;b.classList.remove("light-mode");b.classList.add("dark-mode");return true};if(!fix()){document.addEventListener("DOMContentLoaded",fix)}}}catch(e){}})();</script>'
+    - '<link rel="stylesheet" href="/css/gruvbox.css">'
+  footer: []
+
+plugins:
+  feed:
+    enable: true
+  aplayer:
+    enable: false
+  mermaid:
+    enable: false
+
+cdn:
+  enable: false

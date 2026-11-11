@@ -1,0 +1,165 @@
+/* Gruvbox palette for hexo-theme-redefine
+   https://github.com/morhetz/gruvbox
+   Dark = default, Light = gruvbox light (only if the visitor toggles). */
+
+/* ---------- Dark (default) ---------- */
+:root:root, html.dark, html body.dark-mode {
+  --background-color: #282828;
+  --background-color-transparent: rgba(40, 40, 40, 0.6);
+  --background-color-transparent-15: rgba(40, 40, 40, 0.15);
+  --background-color-transparent-40: rgba(40, 40, 40, 0.4);
+  --background-color-transparent-80: rgba(40, 40, 40, 0.8);
+  --second-background-color: #32302f;
+  --third-background-color: #3c3836;
+  --third-background-color-transparent: rgba(60, 56, 54, 0.6);
+  --primary-color: #fe8019;
+  --first-text-color: #fbf1c7;
+  --second-text-color: #ebdbb2;
+  --third-text-color: #bdae93;
+  --fourth-text-color: #504945;
+  --default-text-color: #ebdbb2;
+  --invert-text-color: #282828;
+  --border-color: rgba(235, 219, 178, 0.10);
+  --selection-color: #665c54;
+  --shadow-color-1: rgba(235, 219, 178, 0.07);
+  --shadow-color-2: rgba(0, 0, 0, 0.25);
+  --shadow-hover-color: rgba(0, 0, 0, 0.4);
+  --scrollbar-color: #504945;
+  --scrollbar-color-hover: #665c54;
+  --scroll-bar-bg-color: #1d2021;
+  --link-color: #8ec07c;
+  --copyright-info-color: #fe8019;
+  --avatar-background-color: #3c3836;
+  --pjax-progress-bar-color: linear-gradient(45deg, #fb4934, #fe8019, #fabd2f, #b8bb26, #8ec07c, #83a598, #d3869b);
+  --home-banner-text-color: #ebdbb2;
+  --home-banner-icons-container-border-color: rgba(235, 219, 178, 0.25);
+  --home-banner-icons-container-background-color: rgba(60, 56, 54, 0.6);
+
+  --note-blue-title-bg: #2e3b3b;
+  --note-red-title-bg: #4a2a26;
+  --note-green-title-bg: #353a1e;
+  --note-yellow-title-bg: #4a3f1f;
+  --note-cyan-title-bg: #2f3f30;
+  --note-purple-title-bg: #42303a;
+  --note-gray-title-bg: #3c3836;
+  --note-black-title-bg: #1d2021;
+  --note-type-title-bg: #4a3420;
+
+  /* code: gruvbox dark (medium) */
+  --highlight-background: #1d2021;
+  --highlight-foreground: #ebdbb2;
+  --highlight-keyword: #fb4934;
+  --highlight-link: #83a598;
+  --highlight-built-in: #fabd2f;
+  --highlight-number: #d3869b;
+  --highlight-string: #b8bb26;
+  --highlight-regexp: #8ec07c;
+  --highlight-subst: #ebdbb2;
+  --highlight-comment: #928374;
+  --highlight-doctag: #928374;
+  --highlight-meta: #8ec07c;
+  --highlight-variable: #83a598;
+  --highlight-attr: #fabd2f;
+  --highlight-section: #fabd2f;
+  --highlight-bullet: #fe8019;
+  --highlight-addition: #32361a;
+  --highlight-deletion: #3c1f1e;
+  --highlight-gutter-color: #7c6f64;
+  --highlight-gutter-bg-color: #1d2021;
+  --inline-code-foreground: #fe8019;
+  --inline-code-background: #3c3836;
+}
+
+/* ---------- Light (gruvbox light, opt-in via toggle) ---------- */
+html.light:root, html body.light-mode {
+  --background-color: #fbf1c7;
+  --background-color-transparent: rgba(251, 241, 199, 0.6);
+  --background-color-transparent-15: rgba(251, 241, 199, 0.15);
+  --background-color-transparent-40: rgba(251, 241, 199, 0.4);
+  --background-color-transparent-80: rgba(251, 241, 199, 0.8);
+  --second-background-color: #f2e5bc;
+  --third-background-color: #ebdbb2;
+  --third-background-color-transparent: rgba(235, 219, 178, 0.6);
+  --primary-color: #af3a03;
+  --first-text-color: #282828;
+  --second-text-color: #3c3836;
+  --third-text-color: #665c54;
+  --fourth-text-color: #d5c4a1;
+  --default-text-color: #3c3836;
+  --invert-text-color: #fbf1c7;
+  --border-color: rgba(60, 56, 54, 0.12);
+  --selection-color: #d5c4a1;
+  --shadow-color-1: rgba(60, 56, 54, 0.08);
+  --shadow-color-2: rgba(60, 56, 54, 0.06);
+  --scrollbar-color: #bdae93;
+  --scrollbar-color-hover: #a89984;
+  --scroll-bar-bg-color: #f2e5bc;
+  --link-color: #427b58;
+  --copyright-info-color: #af3a03;
+  --avatar-background-color: #ebdbb2;
+  --home-banner-text-color: #3c3836;
+  --home-banner-icons-container-border-color: rgba(60, 56, 54, 0.2);
+  --home-banner-icons-container-background-color: rgba(235, 219, 178, 0.6);
+
+  --highlight-background: #f2e5bc;
+  --highlight-foreground: #3c3836;
+  --highlight-keyword: #9d0006;
+  --highlight-link: #076678;
+  --highlight-built-in: #b57614;
+  --highlight-number: #8f3f71;
+  --highlight-string: #79740e;
+  --highlight-regexp: #427b58;
+  --highlight-subst: #3c3836;
+  --highlight-comment: #928374;
+  --highlight-doctag: #928374;
+  --highlight-meta: #427b58;
+  --highlight-variable: #076678;
+  --highlight-attr: #b57614;
+  --highlight-section: #b57614;
+  --highlight-bullet: #af3a03;
+  --highlight-gutter-color: #a89984;
+  --highlight-gutter-bg-color: #f2e5bc;
+  --inline-code-foreground: #af3a03;
+  --inline-code-background: #ebdbb2;
+}
+
+/* ---------- Typography: CJK-friendly ---------- */
+body, .markdown-body, .article-content, .home-article-item, .navbar-container, .home-sidebar-container {
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC",
+    "Source Han Sans SC", "WenQuanYi Micro Hei", sans-serif;
+}
+html[lang^="zh"] .article-content p,
+html[lang^="zh"] .article-content li {
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+
+/* Headings and links in posts */
+html body.dark-mode .article-content h1,
+html body.dark-mode .article-content h2,
+html body.dark-mode .article-content h3,
+html body.dark-mode .article-content h4 { color: #fabd2f; }
+html body.dark-mode .article-content a { color: #8ec07c; }
+html body.dark-mode .article-content a:hover { color: #fe8019; }
+html body.dark-mode .article-content blockquote { border-left-color: #fe8019; background: #32302f; color: #d5c4a1; }
+
+::selection { background: var(--selection-color); color: var(--first-text-color); }
+
+/* mac-style code header dots in gruvbox red / yellow / green */
+html body .code-container::after {
+  background: #fb4934;
+  box-shadow: 20px 0 #fabd2f, 40px 0 #b8bb26;
+}
+
+/* a bit of breathing room under the fixed navbar on narrow screens */
+@media (max-width: 640px) {
+  .archive-container { margin-top: 12px; }
+}
+
+/* long permalink in the copyright card wraps instead of being clipped on phones */
+.article-copyright-info-container ul li {
+  white-space: normal;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+}
