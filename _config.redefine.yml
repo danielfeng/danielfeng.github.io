@@ -34,8 +34,9 @@ home_banner:
   enable: true
   style: static
   image:
-    light: /images/banner-gruvbox-light.svg
-    dark: /images/banner-gruvbox-dark.svg
+    # "Golden sunrise and fog, Big Lake, Oregon" by Bonnie Moreland, public domain (credit in README)
+    light: /images/banner-big-lake.jpg
+    dark: /images/banner-big-lake.jpg
   title: Daniel's Blog
   subtitle:
     text: []

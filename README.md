@@ -20,4 +20,10 @@ and pushes it to `master`; GitHub Pages picks it up in a minute or two.
 
 Theme settings: `_config.redefine.yml` (overrides on top of the npm package's defaults).
 Gruvbox colours / small CSS fixes: `source/css/gruvbox.css`.
-Banner and avatar are local SVGs in `source/images/`.
+Avatar and banner are local files in `source/images/`.
+
+## Credits
+
+- Home banner: "Golden sunrise and fog, Big Lake, Oregon" by Bonnie Moreland, public domain
+  (Public Domain Mark), via Wikimedia Commons:
+  https://commons.wikimedia.org/wiki/File:Golden_sunrise_and_fog_Big_Lake,_Oregon_-_Flickr_-_Bonnie_Moreland_(free_images).jpg
