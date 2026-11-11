@@ -1,6 +1,7 @@
 ---
 title: 我是怎么用 Grok Bot 的
 date: 2026-11-11 19:17:56
+description: 我按汉朝官职开了几个 Grok Bot 分工干活，拿博客翻新试了一下，记下用法和几点经验。
 tags:
   - Grok Bot
 ---

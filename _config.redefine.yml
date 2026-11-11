@@ -24,9 +24,7 @@ global:
   preloader:
     enable: false
   open_graph:
-    enable: true
-    image:
-    description: danielfeng 的博客
+    enable: false   # description / og / twitter tags come from scripts/seo.js instead
   google_analytics:
     enable: false
 

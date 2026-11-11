@@ -5,7 +5,8 @@
 # Site
 title: Daniel's Blog
 subtitle:
-description: ''
+description: Daniel 的技术与工具笔记，记录平时折腾和用过的东西。
+keywords: 技术, 工具, 笔记, Hexo
 author: danielfeng
 language: zh-CN
 timezone: Asia/Shanghai
@@ -97,3 +98,17 @@ search:
   field: post
   content: true
   format: html
+
+# Sitemap (hexo-generator-sitemap); URLs come from `url` above
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: false
+  categories: false
+
+# SEO extras, emitted by scripts/seo.js. Leave a value empty to emit nothing.
+seo:
+  default_image: /images/og-default.jpg   # 1200x630; a post can override with front-matter `og_image:`
+  google_site_verification: ''  # Google Search Console "HTML tag" content value
+  bing_site_verification: ''    # Bing Webmaster "msvalidate.01" content value
+  goatcounter_code: ''          # e.g. `danielfeng` for https://danielfeng.goatcounter.com (analytics off while empty)
