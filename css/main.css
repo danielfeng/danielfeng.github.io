@@ -1293,7 +1293,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #95a8c7;
+    background: #8647ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1338,7 +1338,7 @@ pre code {
   height: 16px;
   padding: 5px;
   width: 16px;
-  background: #fabd2f;
+  background: #504945;
   cursor: pointer;
   opacity: 0.6;
   position: fixed;
@@ -1718,12 +1718,12 @@ pre code {
   font-size: 12px;
   align-items: center;
   bottom: -100px;
-  color: #282828;
+  color: #fabd2f;
   display: flex;
   height: 26px;
   transition: 0.2s ease-in-out;
   transition-property: bottom;
-  background: #fabd2f;
+  background: #504945;
   cursor: pointer;
   opacity: 0.6;
   position: fixed;
@@ -2978,4 +2978,15 @@ pre {
 }
 .post-nav-item a:hover {
   color: #fe8019;
+}
+.sidebar-toggle,
+.back-to-top {
+  background: #504945;
+  border-radius: 4px;
+}
+.sidebar-toggle .toggle-line {
+  background: #fabd2f;
+}
+.back-to-top {
+  color: #fabd2f;
 }
