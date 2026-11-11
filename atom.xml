@@ -8,6 +8,7 @@
   <link href="https://danielfeng.github.io/" rel="alternate"/>
   <link href="https://danielfeng.github.io/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, danielfeng</rights>
+  <subtitle>Daniel 的技术与工具笔记，记录平时折腾和用过的东西。</subtitle>
   <title>Daniel's Blog</title>
   <updated>2026-11-11T11:17:56.000Z</updated>
   <entry>
@@ -21,10 +22,7 @@
     <id>https://danielfeng.github.io/2026/11/11/grok-bot-experience/</id>
     <link href="https://danielfeng.github.io/2026/11/11/grok-bot-experience/"/>
     <published>2026-11-11T11:17:56.000Z</published>
-    <summary>
-      <![CDATA[<p>用了几天 Grok Bot，记几点。</p>
-<h2 id="分开用几个-bot"><a href="#分开用几个-bot" class="headerlink" title="分开用几个 bot"></a>分开用几个 bot</h2><p>我按汉朝官职开了几个 bot：丞]]>
-    </summary>
+    <summary>我按汉朝官职开了几个 Grok Bot 分工干活，拿博客翻新试了一下，记下用法和几点经验。</summary>
     <title>我是怎么用 Grok Bot 的</title>
     <updated>2026-11-11T11:17:56.000Z</updated>
   </entry>
