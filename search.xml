@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>我是怎么用 Grok Bot 的</title>
+    <url>/2026/11/11/grok-bot-experience/</url>
+    <content><![CDATA[<p>用了几天 Grok Bot，记几点。</p>
+<h2 id="分开用几个-bot"><a href="#分开用几个-bot" class="headerlink" title="分开用几个 bot"></a>分开用几个 bot</h2><p>我按汉朝官职开了几个 bot：丞相统筹，太史令看技术新闻，少府管杂事，大司农看投资，尚书令管笔记和博客。</p>
+<p>每个 bot 的记忆和聊天记录是分开的，上下文很干净。不知道找谁就找丞相，它会转过去。缺点是转交是异步的，要等一会儿。</p>
+<h2 id="拿博客试了一下"><a href="#拿博客试了一下" class="headerlink" title="拿博客试了一下"></a>拿博客试了一下</h2><p>我跟丞相说了一句”博客翻新下，主题用 gruvbox dark 的”，剩下的都是尚书令做的。它先给旧版打了 tag，再升级、配自动发布、换主题。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/posts/grok-bot-experience/blog-evolution.gif"
+                      alt="几轮改动"
+                ></p>
+<p>主题和背景图，它都是截图给我挑，不是光报名字：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/posts/grok-bot-experience/theme-options.jpg"
+                      alt="候选主题"
+                ></p>
+<p>我全程没打开编辑器。</p>
+<h2 id="几点经验"><a href="#几点经验" class="headerlink" title="几点经验"></a>几点经验</h2><p>先把规矩写进 bot 的说明里。改仓库、发文章、删东西、花钱、对外发消息，都要先问我，它也确实会问。这篇就是我看过草稿、改了几轮才发的。</p>
+<p>权限给够用就行。GitHub 只开了这个仓库需要的几项。</p>
+<p>让它给图，别让它描述。看一眼就知道要不要。</p>
+<p>它不确定的事会直说。找背景图时有图库打不开，它就换到 Wikimedia Commons，作者和许可都列出来了。</p>
+]]></content>
+      <tags>
+        <tag>Grok Bot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2017/08/25/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>.</p>
