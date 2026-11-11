@@ -1,0 +1,61 @@
+# NexT theme overrides (merged on top of node_modules/hexo-theme-next/_config.yml)
+# Docs: https://theme-next.js.org/docs/
+
+scheme: Gemini
+
+# Always-dark Gruvbox palette lives in source/_data/{variables,styles}.styl,
+# so the system light/dark switch is not used.
+darkmode: false
+
+favicon:
+  small: /images/favicon.svg
+  medium: /images/favicon.svg
+  apple_touch_icon: /images/favicon.svg
+  safari_pinned_tab: /images/favicon.svg
+
+menu:
+  home: / || fa fa-home
+  archives: /archives/ || fa fa-archive
+
+menu_settings:
+  icons: true
+  badges: false
+
+social:
+  GitHub: https://github.com/danielfeng || fab fa-github
+
+footer:
+  since: 2017
+  icon:
+    name: fa fa-terminal
+    animated: false
+    color: "#fe8019"
+  powered: true
+
+theme_color:
+  light: "#282828"
+  dark: "#282828"
+
+text_align:
+  desktop: start
+  mobile: start
+
+codeblock:
+  theme:
+    light: base16/gruvbox-dark-medium
+    dark: base16/gruvbox-dark-medium
+  copy_button:
+    enable: true
+    style: flat
+
+back2top:
+  enable: true
+  sidebar: false
+  scrollpercent: true
+
+motion:
+  enable: false
+
+custom_file_path:
+  variable: source/_data/variables.styl
+  style: source/_data/styles.styl

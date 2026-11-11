@@ -5,14 +5,14 @@
 # Site
 title: Daniel's Blog
 subtitle:
-description:
+description: ''
 author: danielfeng
-language:
-timezone:
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://danielfeng.github.io
+url: https://danielfeng.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -37,12 +37,19 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+updated_option: date
+syntax_highlighter: highlight.js
 highlight:
-  enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
-  tab_replace:
-  
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -72,12 +79,14 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-#theme: landscape
-theme: tranquilpeak
+theme: next
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repository: https://github.com/danielfeng/danielfeng.github.io.git
-  branch: master
+## Deployed by GitHub Actions (.github/workflows/deploy.yml) on push to the
+## `source` branch; generated files are pushed to `master`.
+
+# Feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20

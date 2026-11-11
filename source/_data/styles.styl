@@ -1,0 +1,101 @@
+// Gruvbox Dark touches on top of NexT Gemini
+:root {
+  color-scheme: dark;
+  --highlight-background: $gb-bg0-h;
+  --highlight-gutter-background: $gb-bg0-h;
+}
+figure.highlight, figure.highlight pre, .highlight .code pre, pre .hljs { background: $gb-bg0-h; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.headband { background: $gb-orange; }
+
+// Header / brand block
+.header-inner, .sidebar-inner, .post-block, .comments, .pagination, .tabs-comment {
+  background: var(--content-bg-color);
+}
+.site-brand-container { background: $gb-bg1; }
+.site-title { color: $gb-yellow; font-weight: 600; letter-spacing: .02em; }
+.site-subtitle { color: $gb-fg4; }
+.brand { background: transparent; }
+.toggle .toggle-line { background: $gb-fg1; }
+
+.menu-item a { color: $gb-fg2; }
+.menu-item a:hover, .menu-item-active a { background: $gb-bg1; color: $gb-yellow; }
+
+// Posts
+.post-title, .post-title-link { color: $gb-fg0 !important; }
+.post-title-link:hover { color: $gb-yellow !important; }
+.post-title-link::before { background: $gb-yellow; }
+.post-meta, .post-meta-container { color: $gb-gray; }
+.post-body {
+  color: $gb-fg1;
+  font-size: 1.0625em;
+  line-height: 1.9;
+  word-wrap: break-word;
+  h1, h2, h3, h4, h5, h6 { color: $gb-yellow; }
+  h2 { border-bottom: 1px solid $gb-bg2; padding-bottom: .2em; }
+  a { color: $gb-aqua; border-bottom-color: $gb-bg3; }
+  a:hover { color: $gb-orange; border-bottom-color: $gb-orange; }
+  strong { color: $gb-fg0; }
+  blockquote { color: $gb-fg4; border-left-color: $gb-orange; background: rgba(60, 56, 54, .5); }
+  hr { background-image: none; background: $gb-bg2; height: 1px; }
+}
+.post-eof { background: $gb-bg2; }
+.post-button .btn { border-radius: 4px; }
+
+// Inline code & code blocks
+code {
+  background: $gb-bg1;
+  color: $gb-orange;
+  border-radius: 3px;
+  padding: 2px 5px;
+}
+figure.highlight, pre { border-radius: 6px; }
+
+// Sidebar
+.sidebar-inner { color: $gb-fg2; }
+.site-author-name { color: $gb-fg1; }
+.site-state-item-count { color: $gb-yellow; }
+.links-of-author a, .links-of-author span.exturl { color: $gb-fg2; border-bottom-color: $gb-bg3; }
+.links-of-author a:hover { color: $gb-orange; }
+
+// Archive timeline
+.posts-collapse .post-content {
+  &::before { background: $gb-bg2; }
+  .collection-title::before, .collection-year::before, .post-header::before {
+    background: $gb-bg3;
+    border-color: $gb-bg0;
+  }
+  .collection-title, .collection-year { color: $gb-yellow; }
+  .collection-header small { color: $gb-fg4; }
+  .post-header { border-bottom-color: $gb-bg2; }
+  .post-header:hover { border-bottom-color: $gb-orange; }
+  .post-header:hover::before { background: $gb-orange; }
+  .post-title a { color: $gb-fg1; }
+  .post-title a:hover { color: $gb-yellow; }
+  .post-meta-container { color: $gb-gray; }
+}
+
+// Footer
+.footer, .footer-inner { color: $gb-gray; }
+.footer a { color: $gb-fg4; }
+
+// Scrollbar
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: $gb-bg0-h; }
+::-webkit-scrollbar-thumb { background: $gb-bg2; border-radius: 4px; }
+
+// Mobile tweaks
+@media (max-width: 767px) {
+  .post-body { font-size: 1em; line-height: 1.85; }
+  .post-block { padding: 20px 18px; }
+}
+
+// Separators that NexT hardcodes in light grey
+.post-nav, .post-widgets { border-top-color: $gb-bg2; }
+.post-nav-item a { color: $gb-yellow; }
+.post-nav-item a:hover { color: $gb-orange; }
