@@ -11,7 +11,7 @@ info:
 defaults:
   favicon: /images/favicon.svg
   logo:
-  avatar: /images/avatar.svg
+  avatar: /images/avatar.jpg   # GitHub avatar, github.com/danielfeng.png?size=460
 
 colors:
   primary: "#fe8019"        # gruvbox orange
