@@ -27,6 +27,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - googlefe05ffc3f1a9b3d6.html   # Google Search Console verification file, served verbatim
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -111,4 +112,4 @@ seo:
   default_image: /images/og-default.jpg   # 1200x630; a post can override with front-matter `og_image:`
   google_site_verification: ''  # Google Search Console "HTML tag" content value
   bing_site_verification: ''    # Bing Webmaster "msvalidate.01" content value
-  goatcounter_code: ''          # e.g. `danielfeng` for https://danielfeng.goatcounter.com (analytics off while empty)
+  goatcounter_code: 'danielfeng'          # e.g. `danielfeng` for https://danielfeng.goatcounter.com (analytics off while empty)

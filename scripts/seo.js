@@ -55,6 +55,13 @@ hexo.extend.filter.register('after_render:html', function (html, data) {
   if (seo.bing_site_verification) tags.push(`<meta name="msvalidate.01" content="${e(seo.bing_site_verification)}">`);
   if (seo.goatcounter_code) {
     tags.push(`<script data-goatcounter="https://${e(seo.goatcounter_code)}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>`);
+    // Swup in-site navigation doesn't reload the page, so count each swap too.
+    // Swup's page:view hook only fires after a navigation, never on the first load,
+    // so the initial view is counted once by count.js itself.
+    tags.push('<script>(function(){var done=false;function hook(s){if(done||!s||!s.hooks)return;done=true;' +
+      's.hooks.on("page:view",function(){if(window.goatcounter&&window.goatcounter.count){' +
+      'window.goatcounter.count({path:location.pathname+location.search+location.hash});}});}' +
+      'hook(window.swup);window.addEventListener("redefine:swup:ready",function(e){hook(window.swup||(e.detail&&e.detail.swup));});})();</script>');
   }
 
   // drop the theme's own description so there is exactly one
