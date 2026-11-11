@@ -158,7 +158,7 @@ html body .code-container::after {
 }
 
 /* long permalink in the copyright card wraps instead of being clipped on phones */
-.article-copyright-info-container ul li {
+html body .article-copyright-info-container ul li {
   white-space: normal;
   text-overflow: clip;
   overflow-wrap: anywhere;
