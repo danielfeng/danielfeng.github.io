@@ -45,6 +45,51 @@
       </tags>
   </entry>
   <entry>
+    <title>NAS 上的 Gitea 升级记录</title>
+    <url>/2026/11/24/gitea-upgrade/</url>
+    <content><![CDATA[<h2 id="一、准备"><a href="#一、准备" class="headerlink" title="一、准备"></a>一、准备</h2><p>NAS 上的 Gitea 用 Docker rootless 镜像，数据库是 SQLite，网络模式为 host。这次从 1.23.4 升级，先到 1.26.4，检查正常后再到 28.4.0，镜像都固定版本。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/posts/gitea-upgrade/flow.png"
+                      alt="升级和回滚"
+                ></p>
+<h2 id="二、停服和备份"><a href="#二、停服和备份" class="headerlink" title="二、停服和备份"></a>二、停服和备份</h2><p>路径和主机名换成自己的。备份放在数据目录外面，记下完整文件名，回滚只用这一份。</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">GITEA_HOME=/opt/gitea          <span class="comment"># 下面应有 config/ 和 data/</span></span><br><span class="line">BACKUP=/opt/gitea-backup-1.23.4-2026-11-24-1900.tar.gz</span><br></pre></td></tr></table></figure></div>
+
+<p>先记当前版本，再停服后备份，免得库和仓库对不上。打包和恢复用 root，才能保住属主和权限（rootless 默认 1000:1000）。</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sf http://&lt;LAN_HOST&gt;:&lt;HTTP_PORT&gt;/api/v1/version</span><br><span class="line"></span><br><span class="line">docker stop gitea</span><br><span class="line">docker rename gitea gitea-1.23.4-bak</span><br><span class="line">docker update --restart no gitea-1.23.4-bak</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> tar -cpzf <span class="string">&quot;<span class="variable">$BACKUP</span>&quot;</span> -C <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$GITEA_HOME</span>&quot;</span>)</span>&quot;</span> <span class="string">&quot;<span class="subst">$(basename <span class="string">&quot;<span class="variable">$GITEA_HOME</span>&quot;</span>)</span>&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> tar -tzf <span class="string">&quot;<span class="variable">$BACKUP</span>&quot;</span> | grep -E <span class="string">&#x27;config/app.ini$|data/data/gitea.db$&#x27;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>旧容器若仍是 <code>restart always</code>，NAS 或 Docker 重启后会和新容器抢端口，改名后立刻关掉。SQLite 默认在 <code>$GITEA_HOME/data/data/gitea.db</code>，以 <code>app.ini</code> 的 <code>PATH</code> 为准，确认备份里有它和 <code>app.ini</code>。</p>
+<h2 id="三、分两步升级"><a href="#三、分两步升级" class="headerlink" title="三、分两步升级"></a>三、分两步升级</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">run_gitea</span></span>() &#123;</span><br><span class="line">  docker run -d \</span><br><span class="line">    --name gitea \</span><br><span class="line">    --restart always \</span><br><span class="line">    --network host \</span><br><span class="line">    -e TZ=Asia/Shanghai \</span><br><span class="line">    -v <span class="string">&quot;<span class="variable">$GITEA_HOME</span>/config&quot;</span>:/etc/gitea \</span><br><span class="line">    -v <span class="string">&quot;<span class="variable">$GITEA_HOME</span>/data&quot;</span>:/var/lib/gitea \</span><br><span class="line">    <span class="string">&quot;gitea/gitea:<span class="variable">$&#123;1&#125;</span>-rootless&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">run_gitea 1.26.4</span><br></pre></td></tr></table></figure></div>
+
+<p>等数据库迁移结束、端口起来后再查。版本应是 1.26.x，页面能开，SSH 能列出引用：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sf http://&lt;LAN_HOST&gt;:&lt;HTTP_PORT&gt;/api/v1/version</span><br><span class="line">docker logs --<span class="built_in">tail</span> 100 gitea</span><br><span class="line">git ls-remote ssh://&lt;LAN_HOST&gt;:&lt;SSH_PORT&gt;/&lt;owner&gt;/&lt;repo&gt;.git</span><br></pre></td></tr></table></figure></div>
+
+<p>没问题再往上。不要删 <code>gitea-1.23.4-bak</code> 和备份包。</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">docker stop gitea &amp;&amp; docker <span class="built_in">rm</span> gitea</span><br><span class="line">run_gitea 28.4.0</span><br></pre></td></tr></table></figure></div>
+
+<p>再等迁移结束。版本应是 28.4.0；浏览器看仓库、PR、Issue；<code>git ls-remote</code> 和 <code>git fetch</code> 能通；容器里跑 <code>docker exec gitea gitea doctor check</code>。有 runner 或监控的，看还在不在线。</p>
+<h2 id="四、回滚"><a href="#四、回滚" class="headerlink" title="四、回滚"></a>四、回滚</h2><p>回滚只能回到备份那一刻，之后的提交和改动都不在备份里。</p>
+<p>还没启动过 1.26.4 或 28.4.0 的话，数据没被迁移，改回旧容器即可：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">docker rename gitea-1.23.4-bak gitea</span><br><span class="line">docker update --restart always gitea</span><br><span class="line">docker start gitea</span><br></pre></td></tr></table></figure></div>
+
+<p>新版本启动过，就要先挪走已改过的数据，再解开记下的那份备份。不要删旧容器壳和备份包：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">docker stop gitea &amp;&amp; docker <span class="built_in">rm</span> gitea</span><br><span class="line"><span class="built_in">mv</span> <span class="string">&quot;<span class="variable">$GITEA_HOME</span>&quot;</span> <span class="string">&quot;<span class="variable">$&#123;GITEA_HOME&#125;</span>.failed-<span class="subst">$(date +%F-%H%M)</span>&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> tar -xzpf <span class="string">&quot;<span class="variable">$BACKUP</span>&quot;</span> -C <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$GITEA_HOME</span>&quot;</span>)</span>&quot;</span></span><br><span class="line">docker rename gitea-1.23.4-bak gitea</span><br><span class="line">docker update --restart always gitea</span><br><span class="line">docker start gitea</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="五、清理"><a href="#五、清理" class="headerlink" title="五、清理"></a>五、清理</h2><p>稳定几天后再删旧容器壳、过渡镜像和不再需要的备份。日志若开过 <code>debug</code>，可以改回 <code>info</code>。</p>
+<p>参考：<a class="link"   href="https://docs.gitea.com/installation/upgrade-from-gitea/" >官方升级说明<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。</p>
+]]></content>
+      <categories>
+        <category>本地部署</category>
+      </categories>
+      <tags>
+        <tag>Gitea</tag>
+        <tag>Docker</tag>
+        <tag>本地部署</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我是怎么用 Grok Bot 的</title>
     <url>/2026/11/11/grok-bot-experience/</url>
     <content><![CDATA[<p>用了几天 Grok Bot，记几点。</p>
